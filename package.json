@@ -1,0 +1,35 @@
+{
+  "name": "node-red-contrib-shiv",
+  "version": "0.1.0",
+  "description": "put node-red online securely with a shiv server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/monteslu/node-red-contrib-shiv.git"
+  },
+  "keywords": [
+    "node-red",
+    "shiv",
+    "ngrok",
+    "iot",
+    "mqtt",
+    "messaging"
+  ],
+  "node-red": {
+    "nodes": {
+      "shiv": "shiv.js"
+    }
+  },
+  "author": "Luis Montes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/monteslu/node-red-contrib-shiv/issues"
+  },
+  "homepage": "https://github.com/monteslu/node-red-contrib-shiv#readme",
+  "dependencies": {
+    "shiv": "^0.1.0"
+  }
+}
