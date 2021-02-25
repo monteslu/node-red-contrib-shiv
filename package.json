@@ -30,6 +30,6 @@
   },
   "homepage": "https://github.com/monteslu/node-red-contrib-shiv#readme",
   "dependencies": {
-    "shiv": "^0.1.0"
+    "shiv": "^0.2.0"
   }
 }

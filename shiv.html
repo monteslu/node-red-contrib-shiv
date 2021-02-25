@@ -1,0 +1,118 @@
+<script type="text/javascript">
+  console.log('RED', RED.settings);
+  RED.nodes.registerType('shiv-connection',{
+    category: 'config',
+    color: '#a6bbcf',
+    defaults: {
+      name: {value:""},
+      localWebPort: {value:1880,required:true,validate:RED.validators.number()},
+      localWebHost: {value:"localhost"}
+    },
+    credentials: {
+      shivServer: {type:"text",required:true},
+      shivSecret: {type:"password",required:true}
+    },
+    icon: "bridge.svg",
+    label: function() {
+      return this.name || "shiv-connection";
+    }
+  });
+</script>
+
+<script type="text/html" data-template-name="shiv-connection">
+  <div class="form-row">
+    <label for="node-config-input-shivServer"><i class="fa fa-tag"></i> Shiv Server</label>
+    <input type="text" id="node-config-input-shivServer"  placeholder="wss://somehost.exampe.com">
+  </div>
+  <div class="form-row">
+    <label for="node-config-input-shivSecret"><i class="fa fa-tag"></i> Shiv Secret</label>
+    <input type="password" id="node-config-input-shivSecret">
+  </div>
+  <div class="form-row">
+    <label for="node-config-input-localWebHost"><i class="fa fa-tag"></i> Local Web Host</label>
+    <input type="text" id="node-config-input-localWebHost">
+  </div>
+  <div class="form-row">
+    <label for="node-config-input-localWebPort"><i class="fa fa-tag"></i> Local Web Port</label>
+    <input type="text" id="node-config-input-localWebPort">
+  </div>
+  <div class="form-row">
+      <label for="node-config-input-name"><i class="fa fa-tag"></i> Name</label>
+      <input type="text" id="node-config-input-name" placeholder="Name">
+  </div>
+</script>
+
+<script type="text/html" data-help-name="shiv-connection">
+  <p>A simple node that converts the message payloads into all shiv-connection characters</p>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('shiv-in',{
+    category: 'network',
+    color: '#a6bbcf',
+    defaults: {
+      name: {value:""},
+      connection: {required:true, type:"shiv-connection"},
+    },
+    inputs:0,
+    outputs:1,
+    icon: "bridge.svg",
+    label: function() {
+      return this.name || "shiv-in";
+    }
+  });
+</script>
+
+<script type="text/html" data-template-name="shiv-in">
+  <div class="form-row">
+    <label for="node-input-connection"><i class="fa fa-globe"></i> Connection</label>
+    <input type="text" id="node-input-connection">
+  </div>
+  <div class="form-row">
+      <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+</script>
+
+<script type="text/html" data-help-name="shiv-in">
+  <p>A simple node that converts the message payloads into all shiv-in characters</p>
+</script>
+
+<script type="text/javascript">
+  RED.nodes.registerType('shiv-out',{
+    category: 'network',
+    color: '#a6bbcf',
+    defaults: {
+      name: {value:""},
+      host: {value:""},
+      connection: {required:true, type:"shiv-connection"},
+    },
+    inputs:1,
+    outputs:0,
+    align: "right",
+    icon: "bridge.svg",
+    label: function() {
+      return this.name||"shiv-out";
+    }
+  });
+</script>
+
+<script type="text/html" data-template-name="shiv-out">
+  <div class="form-row">
+    <label for="node-input-connection"><i class="fa fa-globe"></i> Connection</label>
+    <input type="text" id="node-input-connection">
+  </div>
+  <div class="form-row">
+    <label for="node-input-host"><i class="fa fa-tag"></i> host</label>
+    <input type="text" id="node-input-host" placeholder="host">
+</div>
+  <div class="form-row">
+      <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+      <input type="text" id="node-input-name" placeholder="Name">
+  </div>
+</script>
+
+<script type="text/html" data-help-name="shiv-out">
+  <p>A simple node that converts the message payloads into all shiv-out characters</p>
+</script>
+
